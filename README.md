@@ -46,19 +46,20 @@ A lot of beginners open a repository and immediately hit the same questions:
 From the project root:
 
 ```powershell
-C:\Users\jumax\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m oss_first_pass ..\gfi-next
+python -m pip install -e .
+oss-first-pass ..\path-to-repo
 ```
 
 Write the report to a file:
 
 ```powershell
-C:\Users\jumax\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m oss_first_pass ..\gfi-next --output report.md
+oss-first-pass ..\path-to-repo --output report.md
 ```
 
 JSON output:
 
 ```powershell
-C:\Users\jumax\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m oss_first_pass ..\gfi-next --format json
+oss-first-pass ..\path-to-repo --format json
 ```
 
 ## Example Output
@@ -112,13 +113,14 @@ oss-first-pass/
 Run the test suite:
 
 ```powershell
-C:\Users\jumax\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m unittest discover -s tests -v
+python -m unittest discover -s tests -v
 ```
 
 Run the CLI against the current directory:
 
 ```powershell
-$env:PYTHONPATH='src'; C:\Users\jumax\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m oss_first_pass .
+$env:PYTHONPATH='src'
+python -m oss_first_pass .
 ```
 
 ## Portfolio Value
