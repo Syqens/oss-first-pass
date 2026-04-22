@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oss-first-pass"
+version = "0.1.0"
+description = "A contributor-focused CLI that audits open-source repositories and suggests a realistic first PR."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Syqens" }
+]
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+oss-first-pass = "oss_first_pass.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
