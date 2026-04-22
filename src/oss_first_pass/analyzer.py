@@ -49,6 +49,7 @@ class ContributionIdea:
     title: str
     why_it_matters: str
     likely_files: list[str]
+    chosen_because: list[str]
     risk: str = "low"
 
 
@@ -236,6 +237,10 @@ def _build_contribution_ideas(
                 title="Add a contributor guide with setup and PR expectations",
                 why_it_matters="A clear CONTRIBUTING guide reduces friction for first-time contributors and leads to cleaner pull requests.",
                 likely_files=["CONTRIBUTING.md", ".github/CONTRIBUTING.md"],
+                chosen_because=[
+                    "No `CONTRIBUTING.md`, `.github/CONTRIBUTING.md`, or `docs/CONTRIBUTING.md` file was found.",
+                    "Contributor guidance is one of the strongest low-risk improvements for first-time contributors.",
+                ],
             )
         )
 
@@ -245,6 +250,10 @@ def _build_contribution_ideas(
                 title="Add a clearer local setup section to the README",
                 why_it_matters="Strong setup instructions are one of the fastest ways to help new contributors become productive.",
                 likely_files=["README.md"],
+                chosen_because=[
+                    "A README was found, but no setup/install heading was detected.",
+                    "Improving an existing `README.md` is usually safer than introducing a new project surface.",
+                ],
             )
         )
 
@@ -255,6 +264,10 @@ def _build_contribution_ideas(
                 title="Add or tighten a small sanity test around one helper path",
                 why_it_matters="Small tests are usually low-risk and help maintainers trust future changes more quickly.",
                 likely_files=[test_target],
+                chosen_because=[
+                    f"Existing tests were detected, so `{test_target}` is already part of the project workflow.",
+                    "A focused test improvement is usually easier to review than a broader functional change.",
+                ],
             )
         )
     else:
@@ -263,6 +276,10 @@ def _build_contribution_ideas(
                 title="Add a lightweight smoke test for one critical path",
                 why_it_matters="A single smoke test can catch obvious regressions and improve contributor confidence without a large refactor.",
                 likely_files=["tests/", "test/"],
+                chosen_because=[
+                    "No obvious test directory or test files were detected.",
+                    "A small smoke test is a practical first step when a project has little visible test coverage.",
+                ],
             )
         )
 
@@ -272,6 +289,10 @@ def _build_contribution_ideas(
                 title="Add basic issue templates for bug reports and feature requests",
                 why_it_matters="Templates improve issue quality and make triage easier for maintainers.",
                 likely_files=[".github/ISSUE_TEMPLATE/"],
+                chosen_because=[
+                    "No `.github/ISSUE_TEMPLATE/` directory was found.",
+                    "Issue templates improve incoming issue quality without changing the product behavior.",
+                ],
             )
         )
 
@@ -281,6 +302,10 @@ def _build_contribution_ideas(
                 title="Add a lightweight pull request template",
                 why_it_matters="A PR template nudges contributors to explain scope, testing, and rationale up front.",
                 likely_files=[".github/PULL_REQUEST_TEMPLATE.md"],
+                chosen_because=[
+                    "No pull request template file was found.",
+                    "The repository already shows other contributor signals, so a PR template is a realistic hygiene improvement.",
+                ],
             )
         )
 
@@ -290,6 +315,10 @@ def _build_contribution_ideas(
                 title="Add a minimal CI smoke workflow",
                 why_it_matters="A basic workflow for linting or tests gives contributors fast feedback before review.",
                 likely_files=[".github/workflows/"],
+                chosen_because=[
+                    "No CI workflow directory was found even though the project looks code-based.",
+                    "Automated feedback is a high-value contributor experience improvement for Node.js or Python projects.",
+                ],
                 risk="medium",
             )
         )
@@ -300,6 +329,10 @@ def _build_contribution_ideas(
                 title="Document how to run the existing tests locally",
                 why_it_matters="Matching the documented developer workflow to the real test commands lowers the cost of contribution.",
                 likely_files=["README.md", "CONTRIBUTING.md"],
+                chosen_because=[
+                    "The repository already has a README, a contributor guide, and visible tests.",
+                    "That combination usually means the next low-risk improvement is to tighten the documented workflow.",
+                ],
             )
         )
 
@@ -309,6 +342,10 @@ def _build_contribution_ideas(
                 title="Tighten a small documentation gap in the main setup flow",
                 why_it_matters="Tiny documentation fixes are low-risk and often get reviewed quickly when they remove real confusion.",
                 likely_files=["README.md"],
+                chosen_because=[
+                    "No stronger repository-specific recommendation was available from the detected signals.",
+                    "A small documentation cleanup is a safe fallback first contribution.",
+                ],
             )
         )
 

@@ -42,6 +42,7 @@ def report_to_markdown(report: RepoReport) -> str:
     for index, idea in enumerate(report.contribution_ideas, start=1):
         lines.append(f"{index}. {idea.title}")
         lines.append(f"Why it matters: {idea.why_it_matters}")
+        lines.append(f"Chosen because: {'; '.join(idea.chosen_because)}")
         lines.append(f"Likely files: {', '.join(idea.likely_files)}")
         lines.append(f"Risk: {idea.risk}")
 
